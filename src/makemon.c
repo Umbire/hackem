@@ -1452,7 +1452,7 @@ register struct monst *mtmp;
             if (!rn2(3))
                 (void) mongets(mtmp, LIGHT_ARMOR);
             (void) mongets(mtmp, POT_INVISIBILITY);
-        } else if (mm == PM_KING_ARTHUR) {
+        } else if (mm == PM_KING_ARTHUR) { /* start on quest leaders here */
             /* If it has not yet been generated, of course
                Arthur gets Excalibur */
             otmp = mksobj(LONG_SWORD, FALSE, FALSE);
@@ -1478,6 +1478,7 @@ register struct monst *mtmp;
         } else if (mm == PM_TWOFLOWER) {
             (void) mongets(mtmp, EXPENSIVE_CAMERA);
             (void) mongets(mtmp, HAWAIIAN_SHIRT);
+            (void) mongets(mtmp, LOW_BOOTS);
         } else if (mm == PM_MEDUSA) {
             (void) mongets(mtmp, ORCISH_BOW);
             /* 25 to 40 arrows */
@@ -1570,6 +1571,22 @@ register struct monst *mtmp;
             case PM_INMATE:
                 (void) mongets(mtmp, rn2(2) ? HEAVY_IRON_BALL : SPOON);
                 (void) mongets(mtmp, STRIPED_SHIRT);
+                break;
+            case PM_IGNITER:
+                (void) mongets(mtmp, QUARTERSTAFF);
+                if (rn2(5))
+                    (void) mongets(mtmp, rn2(3) ? JACKET
+                                                : PLAIN_CLOAK);
+                if (rn2(3))
+                    (void) mongets(mtmp, rn2(3) ? LOW_BOOTS : HIGH_BOOTS);
+                break;
+            case PM_FROSTER:
+                (void) mongets(mtmp, STILETTO);
+                if (rn2(5))
+                    (void) mongets(mtmp, rn2(3) ? JACKET
+                                                : PLAIN_CLOAK);
+                if (rn2(3))
+                    (void) mongets(mtmp, rn2(3) ? LOW_BOOTS : HIGH_BOOTS);
                 break;
             }
             
